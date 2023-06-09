@@ -2,7 +2,6 @@ import os
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import openai
-from collections.abc import MutableMapping
 
 # Set up OpenAI API credentials
 openai.api_key = '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'
@@ -71,7 +70,7 @@ def start_command(update: Update, context: CallbackContext):
 
 # Set up the Telegram bot
 def main():
-    updater = Updater(TELEGRAM_TOKEN)
+    updater = Updater(TELEGRAM_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
     # Register the start command handler
